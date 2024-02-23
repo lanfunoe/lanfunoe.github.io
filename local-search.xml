@@ -4,11 +4,11 @@
   
   
   <entry>
-    <title></title>
-    <link href="/2024/02/23/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-Spring-%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
-    <url>/2024/02/23/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-Spring-%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/</url>
+    <title>追番最优解autobangumi踩坑实录--vmware中用archlinux采用docker部署</title>
+    <link href="/2024/02/07/%E8%BF%BD%E7%95%AA%E6%9C%80%E4%BC%98%E8%A7%A3autobangumi%E8%B8%A9%E5%9D%91%E5%AE%9E%E5%BD%95-vmware%E4%B8%AD%E7%94%A8archlinux%E9%87%87%E7%94%A8docker%E9%83%A8%E7%BD%B2/"/>
+    <url>/2024/02/07/%E8%BF%BD%E7%95%AA%E6%9C%80%E4%BC%98%E8%A7%A3autobangumi%E8%B8%A9%E5%9D%91%E5%AE%9E%E5%BD%95-vmware%E4%B8%AD%E7%94%A8archlinux%E9%87%87%E7%94%A8docker%E9%83%A8%E7%BD%B2/</url>
     
-    <content type="html"><![CDATA[<h1 id="环境搭建-Spring-源码阅读"><a href="#环境搭建-Spring-源码阅读" class="headerlink" title="环境搭建_Spring 源码阅读"></a>环境搭建_Spring 源码阅读</h1><h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p><a href="https://github.com/spring-projects/spring-framework/wiki/Build-from-Source">Build from Source · spring-projects&#x2F;spring-framework Wiki (github.com)</a></p><p><strong>注意JDK 需要17</strong></p><p>Gradle编译：无效的源发行版: 17</p><p><img src="https://img-blog.csdnimg.cn/4c5c70236c144f2592f8ffbec6022a06.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5biF5pyJ5L2V55So,size_20,color_FFFFFF,t_70,g_se,x_16"></p><h2 id="第一步-pull"><a href="#第一步-pull" class="headerlink" title="第一步 pull"></a>第一步 pull</h2><p><img src="https://i.imgtg.com/2023/03/04/YWrel.png" alt="1"></p><p>左上角切到5.0.x，然后 git pull</p><p><a href="https://imgtg.com/image/YWAGg"><img src="https://i.imgtg.com/2023/03/04/YWAGg.png" alt="YWAGg.png"></a></p><p>gradle 会自动下载。</p><h2 id="objenesis-的编译解决"><a href="#objenesis-的编译解决" class="headerlink" title="objenesis 的编译解决"></a>objenesis 的编译解决</h2><p><a href="https://imgtg.com/image/YxjiX"><img src="https://i.imgtg.com/2023/03/05/YxjiX.png" alt="YxjiX.png"></a></p><p><a href="https://blog.csdn.net/feng_23479046/article/details/100186099">解决spring源码构建时缺失spring-cglib-repack和spring-objenesis-repack问题_南笙北默的博客-CSDN博客</a></p><h2 id="aspect-编译解决"><a href="#aspect-编译解决" class="headerlink" title="aspect 编译解决"></a>aspect 编译解决</h2><p><a href="https://imgtg.com/image/Yx66x"><img src="https://i.imgtg.com/2023/03/05/Yx66x.png" alt="Yx66x.png"></a></p><p><a href="https://imgtg.com/image/YxIYU"><img src="https://i.imgtg.com/2023/03/05/YxIYU.png" alt="YxIYU.png"></a></p><p>使用这个插件–AspectJ</p><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p><a href="https://blog.csdn.net/qq_35443962/article/details/121687219">Gradle编译：无效的源发行版: 17-已解决_帅有何用的博客-CSDN博客</a></p><h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+    <content type="html"><![CDATA[<p>在没有b的情况下看番都不够优雅，看相关在线网站画质不行，且不能选自己想要的字幕组使用相关网站下载，需要自己重命名，看的多了还要自己归档，每周一次打开网站下载，又太麻烦。综上autobangumi就是完美的方案，订阅后，季初选择想看的番，每周自动下载，文件自动归档与重命名成果展示。</p><!-- more -->]]></content>
     
     
     
@@ -17,11 +17,11 @@
   
   
   <entry>
-    <title>追番最优解autobangumi踩坑实录--vmware中用archlinux采用docker部署</title>
-    <link href="/2024/02/07/%E8%BF%BD%E7%95%AA%E6%9C%80%E4%BC%98%E8%A7%A3autobangumi%E8%B8%A9%E5%9D%91%E5%AE%9E%E5%BD%95-vmware%E4%B8%AD%E7%94%A8archlinux%E9%87%87%E7%94%A8docker%E9%83%A8%E7%BD%B2/"/>
-    <url>/2024/02/07/%E8%BF%BD%E7%95%AA%E6%9C%80%E4%BC%98%E8%A7%A3autobangumi%E8%B8%A9%E5%9D%91%E5%AE%9E%E5%BD%95-vmware%E4%B8%AD%E7%94%A8archlinux%E9%87%87%E7%94%A8docker%E9%83%A8%E7%BD%B2/</url>
+    <title>环境搭建_Spring 源码阅读</title>
+    <link href="/2023/03/07/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-Spring-%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
+    <url>/2023/03/07/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-Spring-%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/</url>
     
-    <content type="html"><![CDATA[<p>在没有b的情况下看番都不够优雅，看相关在线网站画质不行，且不能选自己想要的字幕组使用相关网站下载，需要自己重命名，看的多了还要自己归档，每周一次打开网站下载，又太麻烦。综上autobangumi就是完美的方案，订阅后，季初选择想看的番，每周自动下载，文件自动归档与重命名成果展示。</p><!-- more -->]]></content>
+    <content type="html"><![CDATA[<!-- more --><h1 id="环境搭建-Spring-源码阅读"><a href="#环境搭建-Spring-源码阅读" class="headerlink" title="环境搭建_Spring 源码阅读"></a>环境搭建_Spring 源码阅读</h1><h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p><a href="https://github.com/spring-projects/spring-framework/wiki/Build-from-Source">Build from Source · spring-projects&#x2F;spring-framework Wiki (github.com)</a></p><p><strong>注意JDK 需要17</strong></p><p>Gradle编译：无效的源发行版: 17<br><img src="/../img/2.png"></p><h2 id="第一步-pull"><a href="#第一步-pull" class="headerlink" title="第一步 pull"></a>第一步 pull</h2><p><img src="https://i.imgtg.com/2023/03/04/YWrel.png" alt="1"></p><p>左上角切到5.0.x，然后 git pull</p><p><a href="https://imgtg.com/image/YWAGg"><img src="https://i.imgtg.com/2023/03/04/YWAGg.png" alt="YWAGg.png"></a></p><p>gradle 会自动下载。</p><h2 id="objenesis-的编译解决"><a href="#objenesis-的编译解决" class="headerlink" title="objenesis 的编译解决"></a>objenesis 的编译解决</h2><p><a href="https://imgtg.com/image/YxjiX"><img src="https://i.imgtg.com/2023/03/05/YxjiX.png" alt="YxjiX.png"></a></p><p><a href="https://blog.csdn.net/feng_23479046/article/details/100186099">解决spring源码构建时缺失spring-cglib-repack和spring-objenesis-repack问题_南笙北默的博客-CSDN博客</a></p><h2 id="aspect-编译解决"><a href="#aspect-编译解决" class="headerlink" title="aspect 编译解决"></a>aspect 编译解决</h2><p><a href="https://imgtg.com/image/Yx66x"><img src="https://i.imgtg.com/2023/03/05/Yx66x.png" alt="Yx66x.png"></a></p><p><a href="https://imgtg.com/image/YxIYU"><img src="https://i.imgtg.com/2023/03/05/YxIYU.png" alt="YxIYU.png"></a></p><p>使用这个插件–AspectJ</p><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p><a href="https://blog.csdn.net/qq_35443962/article/details/121687219">Gradle编译：无效的源发行版: 17-已解决_帅有何用的博客-CSDN博客</a></p><h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
     
     
     
