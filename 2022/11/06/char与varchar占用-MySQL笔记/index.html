@@ -23,10 +23,12 @@
 <meta property="og:site_name" content="真的非她不可">
 <meta property="og:description" content="MySQL笔记 关于char与varchar字节占用">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lanfunoe/img@master//20200806232022339.png">
 <meta property="article:published_time" content="2022-11-06T06:30:46.000Z">
-<meta property="article:modified_time" content="2024-02-22T17:25:57.465Z">
+<meta property="article:modified_time" content="2024-03-17T16:55:54.432Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lanfunoe/img@master//20200806232022339.png">
   
   
   
@@ -219,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          10 字
+          392 字
         
       </span>
     
@@ -230,7 +232,7 @@
         
         
         
-          1 分钟
+          4 分钟
         
       </span>
     
@@ -272,8 +274,24 @@
             
               <div class="markdown-body">
                 
-                <p>MySQL笔记 关于char与varchar字节占用</p>
-<!-- more -->
+                <!-- more -->
+
+<h2 id="char与varchar占用"><a href="#char与varchar占用" class="headerlink" title="char与varchar占用"></a>char与varchar占用</h2><p>广义上，char(m) 占用那个字节，varchar(m) 最多占用 m 个字节，由占用字节和记录长度的字节组成。</p>
+<blockquote>
+<p>ps：以下皆在使用 InnoDB 时，在 COMPACT 格式下的情况</p>
+</blockquote>
+<h3 id="varchar-m-与-varchar-2m-的区别"><a href="#varchar-m-与-varchar-2m-的区别" class="headerlink" title="varchar(m) 与 varchar(2m)的区别"></a>varchar(m) 与 varchar(2m)的区别</h3><h4 id="InnoDB行格式类型（Compact格式）"><a href="#InnoDB行格式类型（Compact格式）" class="headerlink" title="InnoDB行格式类型（Compact格式）"></a>InnoDB行格式类型（Compact格式）</h4><p>Compact行格式示意图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lanfunoe/img@master//20200806232022339.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<blockquote>
+<p>图片来自<a target="_blank" rel="noopener" href="https://blog.csdn.net/liuming690452074/article/details/113820877">Mysql compact行格式_千百元的博客-CSDN博客_compact行格式</a></p>
+</blockquote>
+<h4 id="varchar-占用构成"><a href="#varchar-占用构成" class="headerlink" title="varchar 占用构成"></a>varchar 占用构成</h4><p>varchar是变长字段，由真正的数据内容和该数据占用的字节数组成。</p>
+<p>而数据占用的字节数存储在变长字段列表如(下图)， ps：这个长度在变长字段列表逆序存放。</p>
+<h5 id="varchar-m-长度在变长字段列表的占用"><a href="#varchar-m-长度在变长字段列表的占用" class="headerlink" title="varchar(m) 长度在变长字段列表的占用"></a>varchar(m) 长度在变长字段列表的占用</h5><p>varchar(m) 允许占用 m * n （n 取决于编码字符集使用多少个字节表示一个字符)， 当其实际占用 i 个字节时</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">1</span>. m * n &lt;= <span class="hljs-number">255</span> 其在变长字段列表占用<span class="hljs-number">1</span>个字节<br><span class="hljs-attribute">2</span>. m * n &gt; <span class="hljs-number">255</span> &amp;&amp; i &lt;= <span class="hljs-number">127</span>， 其在变长字段列表占用<span class="hljs-number">1</span>个字节<br><span class="hljs-attribute">3</span>. m * n &gt; <span class="hljs-number">255</span> &amp;&amp; i &gt; <span class="hljs-number">127</span>， 其在变长字段列表占用<span class="hljs-number">2</span>个字节<br><span class="hljs-attribute">123</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="char-m-一定是占用-m-个字节吗？"><a href="#char-m-一定是占用-m-个字节吗？" class="headerlink" title="char(m) 一定是占用 m 个字节吗？"></a>char(m) 一定是占用 m 个字节吗？</h3><p> 仅当使用定长编码字符集（如 ascii ）的时候，才是固定占用m个字节。</p>
+<p> 当使用变长编码字符集的时候，会像 varchar 一样在变长字段长度列表中存储占用的字节长度。例如：当使用 utf8 字符集的时候，varchar(m) 占用字节长度在m3m。（utf8表示一个字符占用13个字节）。</p>
 
                 
               </div>
