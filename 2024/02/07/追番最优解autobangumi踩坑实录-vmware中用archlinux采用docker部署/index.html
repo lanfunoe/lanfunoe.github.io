@@ -23,10 +23,14 @@
 <meta property="og:site_name" content="真的非她不可">
 <meta property="og:description" content="在没有b的情况下看番都不够优雅，看相关在线网站画质不行，且不能选自己想要的字幕组使用相关网站下载，需要自己重命名，看的多了还要自己归档，每周一次打开网站下载，又太麻烦。综上autobangumi就是完美的方案，订阅后，季初选择想看的番，每周自动下载，文件自动归档与重命名成果展示。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/11.png">
+<meta property="og:image" content="http://example.com/img/22.png">
+<meta property="og:image" content="http://example.com/img/e815bd04ee994eef9002136c18be480f.png">
 <meta property="article:published_time" content="2024-02-07T09:20:50.000Z">
-<meta property="article:modified_time" content="2024-02-22T17:25:57.439Z">
+<meta property="article:modified_time" content="2024-03-17T15:32:28.680Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/11.png">
   
   
   
@@ -219,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          118 字
+          742 字
         
       </span>
     
@@ -230,7 +234,7 @@
         
         
         
-          1 分钟
+          7 分钟
         
       </span>
     
@@ -272,7 +276,36 @@
             
               <div class="markdown-body">
                 
-                <p>在没有b的情况下看番都不够优雅，看相关在线网站画质不行，且不能选自己想要的字幕组使用相关网站下载，需要自己重命名，看的多了还要自己归档，每周一次打开网站下载，又太麻烦。综上autobangumi就是完美的方案，订阅后，季初选择想看的番，每周自动下载，文件自动归档与重命名成果展示。</p>
+                <h1 id="前情"><a href="#前情" class="headerlink" title="前情"></a>前情</h1><p>在没有b的情况下看番都不够优雅，看相关在线网站画质不行，且不能选自己想要的字幕组</p>
+<p>使用相关网站下载，需要自己重命名，看的多了还要自己归档，每周一次打开网站下载，又太麻烦。</p>
+<p>综上autobangumi就是完美的方案，订阅后，季初选择想看的番，每周自动下载，文件自动归档与重命名</p>
+<p>成果展示<br><img src="/img/11.png" srcset="/img/loading.gif" lazyload><br><img src="/img/22.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><p><a target="_blank" rel="noopener" href="https://www.autobangumi.org/">AutoBangumi | 自动追番，解放双手！</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.himiku.com/archives/auto-bangumi.html">私人博客</a></p>
+<h1 id="踩坑实录"><a href="#踩坑实录" class="headerlink" title="踩坑实录"></a>踩坑实录</h1><h2 id="不要用wsl，与docker-desktop（会变得不幸）"><a href="#不要用wsl，与docker-desktop（会变得不幸）" class="headerlink" title="不要用wsl，与docker desktop（会变得不幸）"></a>不要用wsl，与docker desktop（会变得不幸）</h2><ol>
+<li>内存占用特别离谱，开完就跑了个qbitorrent与AutoBangumi以及watchover，电脑内存就不够用了，要无感使用不够优雅，要优雅可以或许可以使用Windows的定时任务，使其在深夜自动运行，但是AutoBangumi必须在qbitorrent启动后启动，或许可以使用linux定时任务（但在ws中l这个该怎么弄？）</li>
+<li>wsl内存不会自动释放，当你运行一段时间后（溢出后），会出现资源不可用的提示（这个问题在网上看了一眼好像从21年就有，或许有解决方案，没细看，因为不用的主要原因不是这个）</li>
+<li>linux containers在bridge下，桥接的是宿主机的网络，所以不能ping通容器的ip。</li>
+<li>如官方使用bridge，当你下载器的地址填docker网关时，AutoBangumi能连qbitorrent，但是其访问下载器ui超时。</li>
+<li>如果填宿主机ip，会显示拒绝连接，图省事，反正就自己主机跑你可以如下设置<br><img src="/img/e815bd04ee994eef9002136c18be480f.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></li>
+</ol>
+<h2 id="使用VMware并运行archlinux，与电脑共享下载动漫的文件夹"><a href="#使用VMware并运行archlinux，与电脑共享下载动漫的文件夹" class="headerlink" title="使用VMware并运行archlinux，与电脑共享下载动漫的文件夹"></a>使用VMware并运行archlinux，与电脑共享下载动漫的文件夹</h2><h3 id="基础-1"><a href="#基础-1" class="headerlink" title="基础"></a>基础</h3><p><a target="_blank" rel="noopener" href="https://arch.icekylin.online/">archlinux 简明指南 | archlinux 简明指南 (icekylin.online)</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7092761463567155213">在 VMware 中安装 ArchLinux - 掘金 (juejin.cn)</a></p>
+<h3 id="踩坑"><a href="#踩坑" class="headerlink" title="踩坑"></a>踩坑</h3><p>1.推荐安装过程中给最少2G内存，安装后1G即可，25G硬盘，cpu给满</p>
+<p>2.使用open-vm-tools，而不是官方的vm-tools</p>
+<p>卸载vm-tools：vmware-uninstall-tools.pl</p>
+<p>参考： <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/VMware/Install_Arch_Linux_as_a_guest">Arch Linux - ArchWiki</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.wnark.com/archives/162.html">Arch Linux安装VMware Tools教程 - 方舟基地 (wnark.com)</a></p>
+<p>3.如果archlinux 汉化不完全，且一切设置如教程，删除<code>~/.config/plasma-localerc</code>文件重启</p>
+<p>源自：<a target="_blank" rel="noopener" href="https://bbs.archlinuxcn.org/viewtopic.php?id=12179">archlinux 汉化</a></p>
+<p>4.共享的文件夹需要挂载，</p>
+<p>命令：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-string">`mount -t fuse.vmhgfs-fuse .host:/ /mnt/hgfs -o allow_other`</span><br><br># <span class="hljs-string">`mount：这是Unix/Linux系统中用于挂载文件系统的命令。`</span><br><br># <span class="hljs-string">`-t fuse.vmhgfs-fuse：这指定了要挂载的文件系统类型。在这种情况下，它使用了用于VMware共享文件夹的FUSE实现。`</span><br><br># <span class="hljs-string">`.host:/：这是VMware环境中共享文件夹的位置。`</span><br><br># <span class="hljs-string">`/mnt/hgfs：这是挂载点，也就是本地系统上共享文件夹内容在挂载后可以访问的目录。`</span><br><br># <span class="hljs-string">`-o allow_other：此选项允许除了挂载它的用户之外的其他用户访问已挂载的文件系统。`</span><br></code></pre></td></tr></table></figure>
+
+
+<p>源自：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/650638983">VMware共享文件夹</a></p>
+<p>注意给这个文件夹写权限</p>
+<p>重启需要重新挂载,所以可以<code>sudo vim/etc/fstab</code>在最后加一行<code>.host:/ /mnt/hgfs fuse.vmhgfs-fuse defaults,allow_other 0 0</code></p>
 <!-- more -->
 
                 
